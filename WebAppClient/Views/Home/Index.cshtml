@@ -1,0 +1,44 @@
+﻿@model WebAppClient.ViewModels.BikesVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>All Bikes</h2>
+
+<p>
+    @Html.ActionLink("Add New Bike", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            <p>"Id"</p>
+        </th>
+        <th>
+            <p>"Brand"</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.lstBikes)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
