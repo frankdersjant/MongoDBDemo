@@ -21,9 +21,8 @@ namespace WebAppMongo
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped(typeof(IContext<>), typeof(Context<>));
             services.AddTransient<IBikeRepository, BikeRepository>();
-            services.AddSingleton<BikeService>();
+            services.AddScoped<IBikeService, BikeService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

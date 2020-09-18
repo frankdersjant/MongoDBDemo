@@ -11,9 +11,9 @@ namespace WebAppMongo.Controllers
     [ApiController]
     public class BikeController : ControllerBase
     {
-        private readonly BikeService _bikeService;
+        private readonly IBikeService _bikeService;
 
-        public BikeController(BikeService bikeService)
+        public BikeController(IBikeService bikeService)
         {
             this._bikeService = bikeService;
         }
